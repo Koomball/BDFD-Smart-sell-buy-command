@@ -1,3 +1,7 @@
+<details> <summary> Index </summary>
+(/Shop)[#/sell]
+</details>
+
 # Advanced /sell & /buy command
 Variables Needed (3): <br>
 - Name: cash | Value: 0
@@ -13,35 +17,30 @@ empty
 command name: sell. <br>
 description: sell your items. <br>
 
-<details> <summary> /sell command </summary>
-
-### option 1
-- Name: item
-- Type: Text
+### option 1 (Text, Preset Choices)
+Name: item
 <br>
-✅ Predefined Choices
-1. choice 1
-  - Name: Apple [$5 Each]
-  - Value: apples-5
 
-2. choice 2
-  -  Name: Oranges [$10 Each] 
-  -  Value: oranges-10
+***Choice 1***
+Name: `Apple [$5 Each]`
+Value: `apples-5`
+
+***Choice 2***
+Name: `Oranges [$10 Each]`
+Value: `oranges-10`
 
 Option values follow the format:
 variableName-sellValue.
 
-### option 2
+### option 2 (Text)
 - Name: amount
-- Type: Text
-- ❌ Predefined Choices
+<br>
 
 ### code:
 ```
 empty
 ```
-
-</details>
+<div> </div>
 
 # /buy
 
