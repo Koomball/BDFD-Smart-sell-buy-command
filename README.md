@@ -21,12 +21,12 @@ description: sell your items. <br>
 - ✅ Predefined Choices
 
 - choice 1
-- - Name: Apple [$5 Each]
-- - Value: apples-5
+  - Name: Apple [$5 Each]
+  - Value: apples-5
 
 - choice 2
--  Name: Oranges [$10 Each] 
--  Value: oranges-10
+  -  Name: Oranges [$10 Each] 
+  -  Value: oranges-10
 
 Option values follow the format:
 variableName-sellValue.
