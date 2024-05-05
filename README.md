@@ -10,6 +10,7 @@ empty
 ```
 
 # /sell
+<details> <summary> config.nyls </summary>
 
 command name: sell.
 description: sell your items. 
@@ -38,6 +39,8 @@ variableName-sellValue.
 ```
 empty
 ```
+
+</details>
 
 # /buy
 ```
