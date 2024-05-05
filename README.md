@@ -13,18 +13,18 @@ empty
 command name: sell. <br>
 description: sell your items. <br>
 
-<details> <summary> config.nyls </summary>
+<details> <summary> /sell command </summary>
 
 ### option 1
 - Name: item
 - Type: Text
-- ✅ Predefined Choices
-
-- choice 1
+<br>
+✅ Predefined Choices
+1. choice 1
   - Name: Apple [$5 Each]
   - Value: apples-5
 
-- choice 2
+2. choice 2
   -  Name: Oranges [$10 Each] 
   -  Value: oranges-10
 
@@ -44,6 +44,8 @@ empty
 </details>
 
 # /buy
+
+
 ```
 empty
 ```
