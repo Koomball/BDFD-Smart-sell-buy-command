@@ -8,43 +8,70 @@ Variables Needed (3): <br>
 - Name: apples | Value: 0
 - Name: oranges | Value: 0
 
-# /shop
-```
-empty 
-```
-
 # /sell
 command name: sell. <br>
 description: sell your items. <br>
 
-### option 1 (Text, Preset Choices)
-Name: item
-<br>
-
-***Choice 1***
-Name: `Apple [$5 Each]`
-Value: `apples-5`
-
-***Choice 2***
-Name: `Oranges [$10 Each]`
-Value: `oranges-10`
+### Option 1 (Text, Preset Choices)
+***Option Name:*** item <br>
+| Name | Value |
+| :----: | :-----: |
+| Apples [$5 Each] | apples-5 |
+| Oranges [$10 Each] | oranges-10 |
 
 Option values follow the format:
 variableName-sellValue.
 
-### option 2 (Text)
-- Name: amount
-<br>
+### Option 2 (Text)
+***Option Name:*** amount <br>
 
 ### code:
 ```
-empty
+$nomention
+$textSplit[$message[item];-]
+$c[1]$if[$isNumber[$message[amount]]]
+$c[2]$if[$message[amount]>$getVar[$splitText[1];$authorID]]
+$title[Invalid Amount]
+$description[> You only have $getVar[$splitText[1];$authorID] $splitText[1]]
+$footer[TIP: Type all to sell all of the selected item you own.]
+$c[2]$else
+$setVar[$splitText[1];$sub[$getVar[$splitText[1];$authorID];$message[amount]];$authorID]
+$setVar[cash;$calculate[$getVar[cash;$authorID]+($splitText[2]*$message[amount])];$authorID]
+$title[Sale Successfull!]
+$description[> Sold $message[amount] $splitText[1] for $$multi[$message[amount];$splitText[2]]]
+$footer[TIP: Type all to sell all of the selected item you own.]
+$c[2]$endif
+
+$c[1]$elseif[$toLowercase[$message[amount]]==all]
+$var[amount;$getVar[$splitText[1];$authorID]]
+$setVar[$splitText[1];0;$authorID]
+$setVar[cash;$calculate[$getVar[cash;$authorID]+($splitText[2]*$var[amount])];$authorID]
+$title[Sale Successfull!]
+$description[> Sold $var[amount] $splitText[1] for $$multi[$var[amount];$splitText[2]]]
+$footer[TIP: Type all to sell all of the selected item you own.]
+$c[1]$else
+$title[ERROR]
+$description[> You entered a invalid number.]
+$footer[TIP: Type all to sell all of the selected item you own.]
+$c[1]$endif
 ```
 <div> </div>
 
 # /buy
+### Option 1 (Text, Preset Choices)
+***Option Name:*** item <br>
+| Name | Value |
+| :----: | :-----: |
+| Apples [$10 Each] | apples-10 |
+| Oranges [$20 Each] | oranges-20 |
 
+Option values follow the format:
+variableName-buyCost.
 
+### Option 2 (Text)
+***Option Name:*** amount <br>
+
+### code:
 ```
 empty
 ```
